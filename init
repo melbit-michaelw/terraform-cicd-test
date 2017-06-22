@@ -1,6 +1,6 @@
 #!/bin/bash -e
  
-PROJECT="$(basename '`pwd`')"
+PROJECT="$(basename \"$(pwd)\")"
 BUCKET="jenkins-terraform-test"
 REGION="ap-southeast-2"
  

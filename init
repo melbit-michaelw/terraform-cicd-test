@@ -14,13 +14,15 @@ init() {
     fi
   fi
  
- 
-  terraform remote config \
-    -backend=s3 \
-    -backend-config="bucket=${BUCKET}" \
-    -backend-config="key=${PROJECT}/terraform.tfstate" \
-    -backend-config="region=${REGION}"
- 
+  cat << EOF > remote.tf
+terraform {
+  backend "s3" {
+    bucket = "${BUCKET}"
+    key    = "${PROJECT}"
+    region = "${REGION}"
+  }
+}
+EOF
 }
  
 while getopts "i" opt; do
@@ -34,3 +36,4 @@ done
 shift $((OPTIND-1))
  
 init
+

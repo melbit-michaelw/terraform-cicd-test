@@ -18,7 +18,7 @@ init() {
 terraform {
   backend "s3" {
     bucket = "${BUCKET}"
-    key    = "${PROJECT}"
+    key    = "${PROJECT}/${ENV}"
     region = "${REGION}"
   }
 }

@@ -8,7 +8,8 @@ module "my_vpc" {
   source = "git::https://github.com/melbit-michaelw/base-vpc.git?ref=0.0.1"
   num_azs = 3
   nat_gw = 0
-  name = "${var.name} ${var.env}"    
+  name = "${var.name} ${var.env}"
+  env = "${var.env}"
 }
 
 resource "aws_instance" "web" {
